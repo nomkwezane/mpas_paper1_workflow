@@ -1,0 +1,25 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Data blobs (never commit ERA5 / model output)
+*.nc
+*.grb
+*.grib
+*.tar
+*.zip
+era5_*/
+Obs_data/
+
+# Local secrets
+.cdsapirc
+*.key

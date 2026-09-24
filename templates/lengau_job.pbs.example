@@ -1,0 +1,30 @@
+#!/bin/bash
+# Template PBS header for Lengau figure / post-process jobs.
+# Copy and adapt; prefer explicit env over #PBS -V.
+#
+#PBS -P ERTH0904
+#PBS -q smpshort
+#PBS -l select=1:ncpus=4:mpiprocs=4:mem=32gb
+#PBS -l walltime=02:00:00
+#PBS -N mpas_paper1_job
+#PBS -o job.out
+#PBS -e job.err
+
+set -euo pipefail
+echo "HOST=$(hostname) START=$(date)"
+
+export PYTHONUNBUFFERED=1
+export MPLBACKEND=Agg
+export OMP_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+
+PUB=/home/${USER}/lustre/MPAS/2025/era_runs/postprocessing/publication_figures
+export PYTHONPATH="${PUB}"
+export PROJ_DATA=/home/${USER}/.conda/envs/python_env/share/proj
+export PROJ_LIB="${PROJ_DATA}"
+
+cd "${PUB}"
+# /home/${USER}/.conda/envs/python_env/bin/python -u paper_draft_figures/run_all.py
+
+echo "DONE=$(date)"

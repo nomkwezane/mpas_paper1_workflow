@@ -1,0 +1,26 @@
+! Example physics / dynamics snippets for Paper 1 (mesoscale_reference).
+! Merge into a full namelist.atmosphere from your MPAS release defaults.
+
+&nhyd_model
+    config_time_integration_order = 2
+    config_dt = 15.0
+    config_len_disp = 3000.0
+    config_horiz_mixing = '2d_smagorinsky'
+/
+
+&damping
+    config_zd = 22000.0
+    config_xnutr = 0.2
+/
+
+&limited_area
+    config_apply_lbcs = false
+/
+
+&physics
+    config_sst_update = true
+    config_sstdiurn_update = true
+    config_radtlw_interval = '00:30:00'
+    config_radtsw_interval = '00:30:00'
+    config_physics_suite = 'mesoscale_reference'
+/
