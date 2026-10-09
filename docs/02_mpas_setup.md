@@ -67,8 +67,11 @@ At ~3 km refined spacing this is a **grey-zone** configuration: deep convection 
 ## 2.6 Ensemble design
 
 - **10 members:** `ENSB01` … `ENSB10`
-- Production trees named `*_tpert` → **temperature perturbations** of the initial state
-- Document amplitude / vertical structure in the run README when known (still a manuscript placeholder if not transcribed from setup scripts)
+- Production trees named `*_tpert`
+- Full perturbation box, amplitudes, and seeds:
+  **[02c_ensemble_perturbation.md](02c_ensemble_perturbation.md)**
+- ERA5 → `PRES:` / `init_atmosphere` steps:
+  **[02b_era5_preprocess_and_init.md](02b_era5_preprocess_and_init.md)**
 
 ## 2.7 Suggested directory layout per member
 

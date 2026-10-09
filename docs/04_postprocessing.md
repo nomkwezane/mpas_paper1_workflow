@@ -36,14 +36,17 @@ postprocessing/YYYY_ensemble_postprocessed_data/ENSB##/
 
 ## 4.3 Standard pipeline (conceptual)
 
+Target lon–lat grid (`target_domain_6003km.txt`): **0.027°** spacing,
+3708 × 4449 points, domain ≈ 50.058°S–50.058°N, 60.0615°W–60.0615°E.
+
 ```text
 diag/history (native)
         │
         ▼
-   convert_mpas  →  latlon.nc
+   convert_mpas  →  latlon.nc   (also height → pressure levels)
         │
         ▼
-   CDO split     →  <var>_hrs_mpas<prefix>_<year>.nc
+   CDO 1.9.10    →  <var>_hrs_mpas<prefix>_<year>.nc
 ```
 
 Driver used when re-building missing multilevel fields:
